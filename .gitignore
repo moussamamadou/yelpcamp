@@ -5,6 +5,13 @@
 /.pnp
 .pnp.js
 
+#VSCODE EXTENSION & CONFIG
+.history
+.vscode
+
+# Keystone generated folder
+.keystone
+
 # testing
 /coverage
 
