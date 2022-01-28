@@ -36,14 +36,8 @@ export const lists: Lists = {
     fields: {
       name: text(),
       price: float(),
-      description: document({
-        formatting: true,
-        dividers: true,
-        links: true,
-        layouts: [
-          [1, 1],
-          [1, 1, 1],
-        ],
+      description: text({
+        ui: { displayMode: "textarea" },
       }),
       image: text(),
       author: relationship({
@@ -79,7 +73,9 @@ export const lists: Lists = {
   }),
   Comment: list({
     fields: {
-      description: text(),
+      description: text({
+        ui: { displayMode: "textarea" },
+      }),
       author: relationship({
         ref: "User.comments",
       }),
