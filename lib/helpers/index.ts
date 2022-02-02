@@ -1,0 +1,1 @@
+export { correctMessage } from "./correctMessage";
