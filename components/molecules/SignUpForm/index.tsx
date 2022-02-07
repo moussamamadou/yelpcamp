@@ -6,7 +6,7 @@ import Input from "components/atoms/Input";
 import Button from "components/atoms/Button";
 import { useEffect, useState } from "react";
 import { correctMessage } from "lib/helpers";
-import Alert from "components/Alert";
+import Alert from "components/atoms/Alert";
 import Router from "next/router";
 
 type FormValues = {

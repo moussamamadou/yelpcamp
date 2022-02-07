@@ -1,6 +1,6 @@
 import Button from "components/atoms/Button";
 import Input from "components/atoms/Input";
-import Alert from "components/Alert";
+import Alert from "components/atoms/Alert";
 import { useMutation } from "@apollo/client";
 import { ADD_CAMPGROUND, UPDATE_CAMPGROUND } from "operations/mutations";
 import { Form, Formik, FormikHelpers } from "formik";

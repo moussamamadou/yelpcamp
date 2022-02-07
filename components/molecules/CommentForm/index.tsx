@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import Input from "components/atoms/Input";
 import Button from "components/atoms/Button";
 import Router from "next/router";
-import Alert from "components/Alert";
+import Alert from "components/atoms/Alert";
 
 type Props = {
   commentID?: string | string[] | undefined;

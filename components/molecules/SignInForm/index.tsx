@@ -4,7 +4,7 @@ import Input from "components/atoms/Input";
 import Button from "components/atoms/Button";
 import { useMutation } from "@apollo/client";
 import { SIGN_IN } from "operations/mutations";
-import Alert from "components/Alert";
+import Alert from "components/atoms/Alert";
 import { CURRENT_USER } from "operations/queries/CURRENT_USER";
 
 type FormValues = {
