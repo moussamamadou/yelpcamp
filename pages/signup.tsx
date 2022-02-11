@@ -1,6 +1,5 @@
 import SignUpForm from "components/molecules/SignUpForm";
-import Testimonial from "components/organism/Testimonial";
-import SplitScreenLayout from "components/templates/SplitScreenLayout";
+import OneColumnLayout from "components/templates/OneColumnLayout";
 import { useUser } from "lib/hooks";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -13,7 +12,7 @@ const SignUp: NextPage = () => {
   useEffect(() => {
     if (user) router.push("/");
   }, [user, router]);
-  return <SplitScreenLayout leftContainer={<SignUpForm />} rightContainer={<Testimonial />} />;
+  return <OneColumnLayout mainContainer={<SignUpForm />} />;
 };
 
 export default SignUp;
