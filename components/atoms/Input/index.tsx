@@ -7,7 +7,11 @@ interface OtherProps {
   isTextArea?: boolean;
 }
 
-const MyInput = ({ isTextArea = false, label = "", ...props }: OtherProps & FieldHookConfig<string>) => {
+const MyInput = ({
+  isTextArea = false,
+  label = "",
+  ...props
+}: OtherProps & FieldHookConfig<string> & React.HTMLAttributes<{}>) => {
   const [field, meta] = useField(props);
   const [isInvalid, setIsInvalid] = useState(false);
 
@@ -18,8 +22,21 @@ const MyInput = ({ isTextArea = false, label = "", ...props }: OtherProps & Fiel
 
   return (
     <FormControl isInvalid={isInvalid}>
-      {label && <FormLabel htmlFor={props.id || props.name}>{label}</FormLabel>}
-      {!isTextArea && <Input {...field} placeholder={props.placeholder} type={props.type} />}
+      {label && (
+        <FormLabel htmlFor={props.id || props.name} paddingTop="0.5rem">
+          {label}
+        </FormLabel>
+      )}
+      {!isTextArea && (
+        <Input
+          {...field}
+          placeholder={props.placeholder}
+          type={props.type}
+          style={props.style}
+          width="100%"
+          bgColor="white"
+        />
+      )}
       {isTextArea && <Textarea {...field} placeholder={props.placeholder} />}
       <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>

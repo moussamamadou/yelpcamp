@@ -14,7 +14,7 @@ const MyButton = ({
   isLoading = false,
   children,
   ...props
-}: Props & React.ButtonHTMLAttributes<{}>) => {
+}: Props & React.ButtonHTMLAttributes<{}> & React.HTMLAttributes<{}>) => {
   let backgroundColor = "black";
   let color = "white";
   if (colorScheme !== "black") {
@@ -24,12 +24,12 @@ const MyButton = ({
   return (
     <Button
       variant="solid"
-      border="1px solid lightgray"
+      border="1px solid #ece1cb"
       isLoading={isLoading}
       leftIcon={leftIcon && leftIcon}
       backgroundColor={backgroundColor}
       color={color}
-      _hover={{ backgroundColor: backgroundColor, filter: "brightness(90%)" }}
+      _hover={{ backgroundColor: backgroundColor }}
       {...props}
     >
       {children}
