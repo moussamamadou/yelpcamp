@@ -10,15 +10,15 @@ const Profile: NextPage = () => {
   const user = useUser();
   const router = useRouter();
   useEffect(() => {
-    if (user) router.push("/");
+    if (!user) router.push("/");
   }, [user, router]);
 
   return (
     <>
       <Head>
-        <title>{user.name + " | Welcome to Yelpcamp profile page"}</title>
+        <title>{user?.name + ", Welcome to Yelpcamp profile page"}</title>
       </Head>
-      <OneColumnLayout mainContainer={<ProfileContent />} />;
+      <OneColumnLayout mainContainer={user ? <ProfileContent /> : <></>} />;
     </>
   );
 };

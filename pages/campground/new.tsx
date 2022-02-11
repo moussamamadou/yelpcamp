@@ -10,7 +10,7 @@ const NewCampground: NextPage = () => {
   const user = useUser();
   const router = useRouter();
   useEffect(() => {
-    if (user) router.push("/");
+    if (!user) router.push("/");
   }, [user, router]);
   return (
     <>

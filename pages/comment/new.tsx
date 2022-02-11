@@ -15,7 +15,7 @@ const NewComment: NextPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (user) router.push("/");
+    if (!user) router.push("/");
   }, [user, router]);
 
   let campgroundID = "";
