@@ -6,6 +6,8 @@ import { ADD_CAMPGROUND, UPDATE_CAMPGROUND } from "operations/mutations";
 import { Form, Formik, FormikHelpers } from "formik";
 import Router from "next/router";
 import * as Yup from "yup";
+import { Box } from "@chakra-ui/react";
+import Title from "components/atoms/Title";
 
 type Props = {
   authorID: string;
@@ -84,7 +86,8 @@ const CampgroundForm = ({
   };
 
   return (
-    <>
+    <Box width="100%" maxWidth="500px">
+      <Title>Add new Campground</Title>
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         <Form>
           <input type="hidden" name="authorID" value={authorID} />
@@ -93,13 +96,13 @@ const CampgroundForm = ({
           <Input placeholder="" type="number" name="price" label="Price" />
           <Input placeholder="" type="text" name="image" label="Image" />
           <Input placeholder="" isTextArea={true} name="description" label="Description" />
-          <Button type="submit" isLoading={loading}>
+          <Button type="submit" isLoading={loading} style={{ margin: "1rem 0" }}>
             {isNew ? "Add Campground" : "Update Campground"}
           </Button>
         </Form>
       </Formik>
       {error ? <Alert>{error.message}</Alert> : null}
-    </>
+    </Box>
   );
 };
 

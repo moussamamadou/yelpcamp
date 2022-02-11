@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import Button from "components/atoms/Button";
+import { Link } from "@chakra-ui/react";
 import Router from "next/router";
 import { SIGN_OUT } from "operations/mutations";
 
@@ -11,7 +11,11 @@ const SignOut = () => {
     if (data.endSession) Router.reload();
   };
 
-  return <Button onClick={onClick}> Sign Out</Button>;
+  return (
+    <Link onClick={onClick} fontWeight="bold">
+      Log Out
+    </Link>
+  );
 };
 
 export default SignOut;

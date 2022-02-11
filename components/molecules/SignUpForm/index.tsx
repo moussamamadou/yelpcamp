@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { correctMessage } from "lib/helpers";
 import Alert from "components/atoms/Alert";
 import Router from "next/router";
+import Title from "components/atoms/Title";
+import { Box, Link, Text } from "@chakra-ui/react";
 
 type FormValues = {
   name: string;
@@ -52,19 +54,26 @@ export default function SignUpForm() {
   }, [error]);
 
   return (
-    <>
+    <Box width="100%" maxWidth="500px">
+      <Title>Start exploring camp from all around the world.</Title>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           <Input type="text" placeholder="John Doe" name="name" label="Full Name" />
           <Input type="text" placeholder="johndoe_92" name="username" label="User Name" />
           <Input type="password" placeholder="Choose your password" name="password" label="Password" />
-          <Button type="submit" isLoading={loading}>
+          <Button type="submit" isLoading={loading} style={{ margin: "1rem 0" }}>
             Create my account
           </Button>
         </Form>
       </Formik>
       {errorMessage && <Alert>{errorMessage}</Alert>}
-    </>
+      <Text>
+        Already a user ?{" "}
+        <Link color="blue.600" href="/signin" fontWeight="bold" textDecoration="underline">
+          Sign In
+        </Link>
+      </Text>
+    </Box>
   );
 }
 

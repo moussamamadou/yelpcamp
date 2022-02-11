@@ -6,6 +6,8 @@ import Input from "components/atoms/Input";
 import Button from "components/atoms/Button";
 import Router from "next/router";
 import Alert from "components/atoms/Alert";
+import { Box } from "@chakra-ui/react";
+import Title from "components/atoms/Title";
 
 type Props = {
   commentID?: string | string[] | undefined;
@@ -49,12 +51,13 @@ const CommentForm = ({ commentID, authorID, campgroundID, description = "", isNe
     const { data } = await commentForm({ variables: values });
 
     if (data.createComment || data.updateComment) {
-      Router.push(`/campground/${campgroundID}`);
+      window.location.href = `/campground/${campgroundID}`;
     }
   };
 
   return (
-    <>
+    <Box width="100%" maxWidth="500px">
+      <Title>Add new Comment</Title>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           {isNew ? (
@@ -66,13 +69,13 @@ const CommentForm = ({ commentID, authorID, campgroundID, description = "", isNe
             <input type="hidden" name="commentID" value={commentID} />
           )}
           <Input placeholder="Comment" isTextArea={true} label="Comment" name="description" />
-          <Button type="submit" isLoading={loading}>
+          <Button type="submit" isLoading={loading} style={{ margin: "1rem 0" }}>
             {isNew ? "Add comment" : "Update comment"}
           </Button>
         </Form>
       </Formik>
       {error ? <Alert>{error.message}</Alert> : null}
-    </>
+    </Box>
   );
 };
 

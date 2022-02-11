@@ -6,6 +6,8 @@ import { useMutation } from "@apollo/client";
 import { SIGN_IN } from "operations/mutations";
 import Alert from "components/atoms/Alert";
 import { CURRENT_USER } from "operations/queries/CURRENT_USER";
+import { Box, Link, Text } from "@chakra-ui/react";
+import Title from "components/atoms/Title";
 
 type FormValues = {
   username: string;
@@ -33,12 +35,13 @@ const SignInForm = () => {
   };
 
   return (
-    <>
+    <Box width="100%" maxWidth="500px">
+      <Title>Start exploring camp from all around the world.</Title>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           <Input label="User Name" name="username" type="text" placeholder="johndoe_92" />
           <Input label="Password" name="password" type="password" placeholder="Choose your password" />
-          <Button type="submit" isLoading={loading ? true : false}>
+          <Button type="submit" isLoading={loading ? true : false} style={{ margin: "1rem 0" }}>
             Sign In
           </Button>
         </Form>
@@ -46,7 +49,13 @@ const SignInForm = () => {
       {data?.authenticateUserWithPassword?.__typename === "UserAuthenticationWithPasswordFailure" ? (
         <Alert>{data?.authenticateUserWithPassword?.message}</Alert>
       ) : null}
-    </>
+      <Text>
+        Not a user yet ?{" "}
+        <Link color="blue.600" href="/signup" fontWeight="bold" textDecoration="underline">
+          Sign Up
+        </Link>
+      </Text>
+    </Box>
   );
 };
 
