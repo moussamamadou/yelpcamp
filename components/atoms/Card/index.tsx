@@ -20,6 +20,9 @@ const Card = ({ campgroundID, name, description, image }: Props) => {
       backgroundColor="white"
       borderColor="#ece1cb"
       transitionDuration="300ms"
+      flex="1"
+      minWidth={250}
+      maxWidth={400}
       _hover={{ textDecoration: "none", boxShadow: "md", cursor: "pointer", borderColor: "#e0c996" }}
     >
       <LinkOverlay href={`/campground/${campgroundID}`}>

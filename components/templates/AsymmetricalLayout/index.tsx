@@ -24,7 +24,9 @@ export default function AsymmetricalLayout({ mainContainer, sideContainer }: Pro
       >
         <main>
           <Flex direction={["column", "column", "row"]} align="start" w="100%" gap="1rem">
-            <Box flex="1">{mainContainer}</Box>
+            <Box flex="1" width="100%">
+              {mainContainer}
+            </Box>
             <Box maxWidth={["100%", "100%", "300px"]}>{sideContainer}</Box>
           </Flex>
         </main>

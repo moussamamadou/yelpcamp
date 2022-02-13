@@ -19,6 +19,7 @@ const Description = ({ name, description, image, authorName, price }: Props) => 
       paddingBlock="1rem"
       backgroundColor="white"
       borderColor="#ece1cb"
+      width="100%"
     >
       <Image src={image} alt={name} borderRadius="md" />
       <Flex paddingBlock="1rem">

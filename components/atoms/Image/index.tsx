@@ -19,7 +19,7 @@ export default function MyImage({ src, alt, ...props }: ImageProps) {
       onError={onError}
       alt={alt}
       {...props}
-      style={{ aspectRatio: "16 / 9" }}
+      style={{ aspectRatio: "16 / 9", width: "100%" }}
     />
   );
 }

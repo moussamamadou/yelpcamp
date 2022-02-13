@@ -30,7 +30,7 @@ const CampgroundDetails = ({ campgroundID }: Props) => {
   if (data) {
     const { name, description, date, image, id, price, author, comments } = data.campground;
     return (
-      <div>
+      <Box width="100%">
         <Description
           name={name}
           description={description}
@@ -63,7 +63,7 @@ const CampgroundDetails = ({ campgroundID }: Props) => {
             </Box>
           </Flex>
         </Box>
-      </div>
+      </Box>
     );
   }
   return <></>;
